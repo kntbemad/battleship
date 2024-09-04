@@ -2,19 +2,24 @@
     display: flex;
     min-height: 100vh;
     min-width: 100vh;
-    gap: 60px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
+}
+
+body{
+    background-color: rgb(51, 62, 89);
 }
 
 .gameboard{
     width: 60vh;
     height: 60vh;
-    border-color: black;
+    border: solid 1px rgb(123,123,123);
     background-color: rgb(223, 223, 223);
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
+    box-shadow: 8px 8px 8px rgb(20, 22, 26);
 }
 
 .gameboard div {
@@ -24,11 +29,91 @@
 }
 
 .gridsquare{
-    transition: all 2s;
+    transition: all 0.2s;
+    background-color: rgb(235, 235, 235);
 }
 
 .gridsquare:hover{
-    background-color: rgb(107, 107, 107);
+    background-color: rgb(179, 179, 179);
+    border-color: rgb(0, 0, 0);
+    border-width: 1.5px;
     transition: all 0s;
-    
 }
+
+#vstext p{
+    font-size: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(240, 196, 177);
+    text-shadow: 3px 3px 4px rgb(11, 11, 16);
+}
+
+.ship{
+    background-color:  rgb(216, 92, 115);
+    border-color: rgb(132, 21, 21);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    line-height: 0px;
+    color:  rgb(81, 164, 88);
+}
+
+.ship.vertical {
+    border-width: 0px 2px 0px 2px;
+}
+
+.ship.horizontal {
+    border-width: 2px 0px 2px 0px;
+}
+
+.ship:hover{
+    background-color: rgb(147, 56, 73);
+    border-color: rgb(19, 7, 7);
+    border-width: 1.5px;
+    transition: all 0s;
+    cursor:default;
+}
+
+#rightBoard .gridsquare.miss {
+    background-color: rgb(143, 143, 143);
+}
+
+#rightBoard .gridsquare.hit {
+    background-color: rgb(150, 63, 63);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(53, 14, 14);
+}
+
+#leftBoard .ship{ 
+    background-color:  rgb(92, 216, 109);
+    border-color: rgb(21, 132, 47);
+}
+
+#leftBoard .ship:hover {
+    background-color: rgb(62, 160, 66);
+    border-color: rgb(4, 11, 6);
+    border-width: 2px;
+    transition: all 0s;
+}
+
+.ship.vertical.top {
+    border-top-width: 2px;
+}
+
+.ship.vertical.bottom {
+    border-bottom-width: 2px;
+}
+
+.ship.horizontal.top {
+    border-left-width: 2px;
+}
+
+.ship.horizontal.bottom {
+    border-right-width: 2px;
+}
+
+

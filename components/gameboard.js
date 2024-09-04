@@ -19,7 +19,7 @@ class Gameboard{
         return array;
     }
 
-    placeShip(x,y, size){
+    placeShip(x,y, size, pointingUp){
         
         if(x >= this.board.length){
           return false; 
@@ -27,22 +27,43 @@ class Gameboard{
         if(y >= this.board[x].length){
           return false; 
         }
-        if(y + size - 1 >= this.board[x].length){
-          return false; 
-        }
-
-        for(let i = 0; i < size; i++){
-          if(this.board[x][y+i][0] !== null){
+        
+        if(pointingUp){
+          if(y + size - 1 >= this.board[x].length){
             return false; 
           }
+
+          for(let i = 0; i < size; i++){
+            if(this.board[x][y+i][0] !== null){
+              return false; 
+            }
+          }
+          
+          let ship = new Ship(size);
+          for(let i = 0; i < size; i++){
+            this.board[x][y+i] = [ship, false];
+          }
+          this.shipCount++;
+          return true; 
+        } else {
+
+          if(x + size - 1 >= this.board.length){
+            return false; 
+          }
+
+          for(let i = 0; i < size; i++){
+            if(this.board[x+i][y][0] !== null){
+              return false; 
+            }
+          }
+          
+          let ship = new Ship(size);
+          for(let i = 0; i < size; i++){
+            this.board[x+i][y] = [ship, false];
+          }
+          this.shipCount++;
+          return true; 
         }
-        
-        let ship = new Ship(size);
-        for(let i = 0; i < size; i++){
-          this.board[x][y+i] = [ship, false];
-        }
-        this.shipCount++;
-        return true; 
     }
 
     receiveAttack(x, y){
@@ -62,9 +83,14 @@ class Gameboard{
         let sunk = this.board[x][y][0].hit();
         if(sunk){
           this.sinkCount++;
+          console.log("sink: " , this.sinkCount , " ship: " , this.shipCount)
           this.gameOver = this.sinkCount >= this.shipCount ? true : false;
-          console.log("Game over!");
-          return "game over";
+          alert("Ship sunk!");
+          if(this.gameOver){
+            console.log("Game over!");
+            return "game over";
+          }
+          return "sunk";
         }
         return true; 
       }

@@ -7,6 +7,7 @@ export class Ship {
     this.size = size;
     this.sunk = false;
     this.hitCount = 0;
+    this.pointUp = true;
   }
 
   get state() {
