@@ -67,6 +67,11 @@ class Gameboard{
     }
 
     receiveAttack(x, y){
+      //returns null if cannot attack
+      //returns false if miss
+      //returns true if hit
+      //returns "sunk" if sunk shit
+      //returns "game over" if game over
       if(x >= this.board.length){
         return null; 
       }     

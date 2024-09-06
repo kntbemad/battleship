@@ -1,7 +1,7 @@
 #container{
     display: flex;
-    min-height: 100vh;
-    min-width: 100vh;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -9,6 +9,8 @@
 
 body{
     background-color: rgb(51, 62, 89);
+    min-height: 100vh;
+    min-width: 100vh;
 }
 
 .gameboard{
@@ -88,6 +90,18 @@ body{
     color:rgb(53, 14, 14);
 }
 
+#leftBoard .gridsquare.miss{
+    background-color: rgb(143, 143, 143);
+}
+
+#leftBoard .gridsquare.hit {
+    background-color: rgb(27, 107, 58);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(9, 53, 48);
+}
 #leftBoard .ship{ 
     background-color:  rgb(92, 216, 109);
     border-color: rgb(21, 132, 47);
@@ -116,4 +130,18 @@ body{
     border-right-width: 2px;
 }
 
+#reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#resetbtn {
+    background-color:rgb(87, 89, 145);
+    font-size: 30px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border-width: 0px;
+    color: rgb(248, 237, 254);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+}
